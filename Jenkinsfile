@@ -13,6 +13,7 @@ pipeline {
             }
         }
         stage('Deliver') {
+		agent any
             steps {
                 // sh './jenkins/scripts/deliver.sh'
                 sh 'docker build -t gowthammuthyala/${JOB_NAME} .'
