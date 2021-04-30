@@ -9,6 +9,7 @@ RUN apt-get install -y default-jre
 # RUN apt-get install -y tomcat8
 
 ADD ./project/target /usr/local/tomcat/webapps
+WORKDIR /usr/local/tomcat/webapps
 RUN pwd && ls
 
 ENTRYPOINT ["catalina.sh","run"]
