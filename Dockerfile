@@ -32,6 +32,7 @@ RUN apt-get update
 WORKDIR /opt/tomcat/webapps
 # RUN curl -O -L https://github.com/AKSarav/SampleWebApp/raw/master/dist/SampleWebApp.war
 ADD ./project/target .
+RUN pwd && ls
 
 EXPOSE 8080
 
