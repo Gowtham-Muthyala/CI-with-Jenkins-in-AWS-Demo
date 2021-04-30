@@ -10,7 +10,7 @@ pipeline {
     }
             steps {
                 sh 'mvn -B -DskipTests clean package'
-                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true, followSymlinks: false, onlyIfSuccessful: true
+                archiveArtifacts artifacts: 'project/target/*.war', fingerprint: true, followSymlinks: false, onlyIfSuccessful: true
             }
         }
         stage('Test') {
