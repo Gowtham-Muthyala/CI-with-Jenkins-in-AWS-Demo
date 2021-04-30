@@ -1,7 +1,8 @@
 pipeline {
-    agent { docker 'maven:3-alpine' }
+	agent any
     stages {
 	stage('Build') {
+	    agent { docker 'maven:3-alpine' }
             steps {
                 sh 'mvn -B -DskipTests clean package'
                 archiveArtifacts artifacts: 'project/target/*.war', fingerprint: true, followSymlinks: false, onlyIfSuccessful: true
@@ -13,7 +14,6 @@ pipeline {
             }
         }
         stage('Deliver') {
-		agent any
             steps {
                 // sh './jenkins/scripts/deliver.sh'
                 sh 'docker build -t gowthammuthyala/${JOB_NAME} .'
