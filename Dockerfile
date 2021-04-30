@@ -1,4 +1,5 @@
 FROM ubuntu:16.04
+FROM tomcat:8.0
 
 ENV DEBIAN_FRONTEND noninteractive
 
