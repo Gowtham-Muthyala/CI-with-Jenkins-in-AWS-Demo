@@ -21,8 +21,8 @@ MAINTAINER GowthaMuthyala
 RUN mkdir /opt/tomcat/
 
 WORKDIR /opt/tomcat
-RUN wget -O https://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.65/bin/apache-tomcat-8.5.65.tar.gz
-RUN tar xvfz apache*.tar.gz
+RUN wget https://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.65/bin/apache-tomcat-8.5.65.tar.gz
+RUN tar xvzf apache*.tar.gz
 RUN mv apache-tomcat-8.5.65/* /opt/tomcat/.
 RUN apt-get -y install default-jdk
 RUN java -version
