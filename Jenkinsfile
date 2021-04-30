@@ -1,8 +1,14 @@
 pipeline {
-	agent any
+    agent any
     stages {
 	stage('Build') {
-		agent { docker {image 'maven:3-alpine' reuseNode true} }
+	    agent {
+        	docker {
+            	    image 'maven:3-alpine'
+            	    args '-v /root/.m2:/root/.m2'
+		    reuseNode true
+		} 
+	    }
             steps {
                 sh 'mvn -B -DskipTests clean package'
                 archiveArtifacts artifacts: 'project/target/*.war', fingerprint: true, followSymlinks: false, onlyIfSuccessful: true
